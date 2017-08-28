@@ -1,0 +1,42 @@
+{:widget("Blog/header")}
+
+<div class="position"></div>
+
+<div class="overall">
+
+    <div class="left">
+        {foreach $articleData as $v}
+        <div class="xnews2">
+            <div class="pic">
+                <a target="_blank" href="{:url('Article/index',['id'=>$v.id])}">
+                    <img src="{$v.pic}" alt="{$v.title}"/>
+                </a>
+            </div>
+            <div class="dec">
+                <h3><a target="_blank" href="{:url('Article/index',['id'=>$v.id])}">{$v.title}</a></h3>
+                <div class="time">发布时间：{$v.time|date="Y-m-d H:i:s",###}</div>
+                <p>{$v.desc}</p>
+                <?php
+                $keywords=$v['keywords'];
+                $keywords=explode(',',$keywords);
+                ?>
+                <div class="time">
+                    {foreach $keywords as $val}
+                    <a href="{:url('Lst/index',['keywords'=>$val])}">{$val}</a>
+                    {/foreach}
+                </div>
+            </div>
+        </div>
+        {/foreach}
+        <div class="pages">
+            <div class="plist">
+               {$articleData->render()}
+            </div>
+        </div>
+    </div>
+
+
+    {:widget("Blog/right")}
+
+</div>
+{:widget("Blog/footer")}

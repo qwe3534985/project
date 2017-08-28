@@ -1,0 +1,99 @@
+{:widget('Blog/head')}
+{:widget('Blog/left')}
+<!-- /Page Sidebar -->
+<!-- Page Content -->
+<div class="page-content">
+    <!-- Page Breadcrumb -->
+    <div class="page-breadcrumbs">
+        <ul class="breadcrumb">
+            <li>
+                <a href="#">系统</a>
+            </li>
+            <li class="active">文章列表</li>
+        </ul>
+    </div>
+    <!-- /Page Breadcrumb -->
+
+    <!-- Page Body -->
+    <div class="page-body">
+
+        <button type="button" tooltip="添加管理员" class="btn btn-sm btn-azure btn-addon"
+                onClick="javascript:window.location.href = '{:url(\'Article/add\')}'">
+            <i class="fa fa-plus"></i> Add
+        </button>
+        <div class="row">
+            <div class="col-lg-12 col-sm-12 col-xs-12">
+                <div class="widget">
+                    <div class="widget-body">
+                        <div class="flip-scroll">
+                            <table class="table table-bordered table-hover">
+                                <thead class="">
+                                <tr>
+                                    <th class="text-center">ID</th>
+                                    <th class="text-center">标题</th>
+                                    <th class="text-center">栏目名</th>
+                                    <th class="text-center">缩略图</th>
+                                    <th class="text-center">作者</th>
+                                    <th class="text-center">时间</th>
+                                    <th class="text-center">推荐</th>
+                                    <th class="text-center">关键字</th>
+                                    <th class="text-center">操作</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    {foreach $data as $v}
+                                    <td align="center" style="line-height: 92px">{$v.id}</td>
+                                    <td align="center" style="line-height: 92px">{$v.title}</td>
+                                    <td align="center" style="line-height: 92px">{$v.catename}</td>
+                                    <td align="center" style="line-height: 92px">
+                                        {if condition="$v.pic neq '' "}<img width="100" src="{$v.pic}">
+                                        {else /}暂无图片
+                                        {/if}
+                                    </td>
+                                    <td align="center" style="line-height: 92px">{$v.author}</td>
+                                    <td align="center" style="line-height: 92px">{$v.time|date="Y-m-d",###}</td>
+                                    <td align="center" style="line-height: 92px">
+                                        {$v.state==1?'是':'否'}
+                                    </td>
+                                    <td align="center" style="line-height: 92px">{$v.keywords}</td>
+                                    <td align="center" style="line-height: 92px">
+                                        <a href="{:url('Article/edit',[\'id\'=>$v.id])}"
+                                           class="btn btn-primary btn-sm shiny">
+                                            <i class="fa fa-edit"></i> 编辑
+                                        </a>
+                                        <a href="#"
+                                           onClick="warning('确实要删除吗', '{:url(\'Article/del\',[\'id\'=>$v.id])}')"
+                                           class="btn btn-danger btn-sm shiny">
+                                            <i class="fa fa-trash-o"></i> 删除
+                                        </a>
+                                    </td>
+                                </tr>
+                                {/foreach}
+                                </tbody>
+                            </table>
+                        </div>
+                        <div>
+                        </div>
+                    </div>
+                    {$data->render()}
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- /Page Body -->
+</div>
+<!-- /Page Content -->
+</div>
+</div>
+
+<!--Basic Scripts-->
+<script src="__STATIC__/admin/style/jquery_002.js"></script>
+<script src="__STATIC__/admin/style/bootstrap.js"></script>
+<script src="__STATIC__/admin/style/jquery.js"></script>
+<!--Beyond Scripts-->
+<script src="__STATIC__/admin/style/beyond.js"></script>
+
+
+</body></html>

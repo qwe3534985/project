@@ -1,0 +1,85 @@
+{:widget("Blog/head")}
+<script src='/jiehun/goto/my-65547.js' language='javascript'></script>
+
+<div class="position"><a href="{:url('Index/index')}">主页</a> >
+    <a href="{:url('Lst/index',['id'=>$data.cateid])}">{$data.catename}</a>
+</div>
+
+<div class="overall">
+    <div class="left">
+        <div class="scrap">
+            <h1>{$data.title}</h1>
+            <div class="spread">
+                <span class="writor">发布时间：{$data.time|date="Y-m-d H:i:s",###}</span>
+                <span class="writor">编辑：{$data.author}</span>
+                <span class="writor">标签：<a href='/jiehun/z97712.html'>{$data.keywords}</a></span>
+                <span class="writor">热度：
+                    <script src="/jiehun/plus/count.php?view=yes&aid=156214&mid=55" type='text/javascript'
+                            language="javascript">
+                    </script>
+                    {$data.click}
+                </span>
+            </div>
+        </div>
+
+        <!--百度分享-->
+        <script src='/jiehun/goto/my-65542.js' language='javascript'></script>
+
+        <div class="takeaway">
+            <span class="btn arr-left"></span>
+            <p class="jjxq">{$data.desc}</p>
+            <span class="btn arr-right"></span>
+        </div>
+
+        <script src='/jiehun/goto/my-65541.js' language='javascript'></script>
+        <div class="substance">
+            {$data.content}
+        </div>
+
+
+        <div class="biaoqian">
+
+        </div>
+
+
+        <!--相关阅读 -->
+        <div class="xgread">
+            <div class="til"><h4>相关阅读</h4></div>
+            <div class="lef"><!--相关阅读主题链接-->
+                <script src='/jiehun/goto/my-65540.js' language='javascript'></script>
+            </div>
+            <div class="rig">
+                <ul>
+                    {foreach $relateRead as $v}
+                    <li>
+                        <a href="{:url('Article/index',['id'=>$v.id])}" target="_blank">
+                            {$v.title}
+                        </a>
+                    </li>
+                    {/foreach}
+                </ul>
+            </div>
+        </div>
+
+        <!--频道推荐-->
+        <div class="hotsnew">
+            <div class="til"><h4>频道推荐</h4></div>
+            <ul>
+                {foreach $tvCate as $v}
+                <li>
+                    <div class="tu">
+                        <a href="{:url('Article/index',['id'=>$v.id])}" target="_blank">
+                            <img src="{$v.pic}" alt="{$v.title}"/>
+                        </a>
+                    </div>
+                    <p><a href="{:url('Article/index',['id'=>$v.id])}">{$v.title}</a></p>
+                </li>
+                {/foreach}
+            </ul>
+        </div>
+    </div>
+
+    {:widget("Blog/right")}
+
+</div>
+{:widget("Blog/footer")}

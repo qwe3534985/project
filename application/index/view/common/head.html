@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>童老师ThinkPHP交流群：484519446</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="keywords" content="童老师ThinkPHP交流群：484519446"/>
+    <meta name="description" content="童老师ThinkPHP交流群：484519446"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7"/>
+    <link href="__STATIC__/index/style/lady.css" type="text/css" rel="stylesheet"/>
+    <script type='text/javascript' src='__STATIC__/index/style/ismobile.js'></script>
+</head>
+
+<body>
+
+<div class="ladytop">
+    <div class="nav">
+        <div class="left"><a href=""><img src="__STATIC__/index/images/hunshang.png" alt="wed114婚尚"></a></div>
+        <div class="right">
+            <div class="box">
+                <a href="{:url('Index/index')}" rel='dropmenu209'>首页</a>
+                {foreach $cateData as $v}
+                <a href="{:url('Lst/index',['id'=>$v.id])}" rel='dropmenu110'>{$v.catename}</a>
+                {/foreach}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="hotmenu">
+    <div class="con">热门标签：
+        {foreach $tagData as $v}
+        <a href='#'>{$v.tagname}</a>
+        {/foreach}
+    </div>
+</div>
+
+<!--顶部通栏-->
+
